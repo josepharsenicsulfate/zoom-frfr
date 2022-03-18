@@ -22,13 +22,13 @@ io.on('connection', socket => {
         const user = newUser(socket.id, username, room)
         socket.join(user.room)
 
-        socket.emit('message', formatMessage('chat','welcome'))
+        socket.emit('message', formatMessage('Chat [Bot]','Welcome to chat'))
 
         socket.broadcast
             .to(user.room)
             .emit(
                 'message',
-                formatMessage('chat',`${user.username} has joined the room`)
+                formatMessage('Chat [Bot]',`${user.username} has joined the room`)
             )
         io.to(user.room).emit('room-users', {
             room: user.room,
@@ -47,7 +47,7 @@ io.on('connection', socket => {
         if(user){
             io.to(user.room).emit(
                 'message',
-                formatMessage('chat',`${user.username} has left the room`)
+                formatMessage('Chat [Bot]',`${user.username} has left the room`)
             )
 
             io.to(user.room).emit('room-users', {

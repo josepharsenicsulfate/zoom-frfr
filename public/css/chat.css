@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.chat-container{
+    padding: 50px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a{
+    background-color: transparent;
+    border: 1px solid #b8090c;
+    color: #b8090c;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+header a:hover{
+    background-color: #b8090c;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
+main{
+    display: grid;
+    grid-template-areas: "side log"
+                         "side form";
+    grid-template-columns: 2fr 3fr;
+    height: 65vh;
+    margin: 25px 0;
+    row-gap: 15px;
+}
+
+.chat-sidebar{
+    grid-area: side;
+}
+
+.chat-messages{
+    grid-area: log;
+    overflow-y: scroll;
+}
+
+p.meta{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+p.meta span{
+    color: #b8090c;
+}
+
+p.text{
+    word-wrap: break-word;
+}
+
+.chat-form-container{
+    grid-area: form;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.chat-form-container > #chat-form > :first-child{
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    background-color: transparent;
+}
+
+.chat-form-container #chat-form :not(:first-child){
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.chat-form{
+    width: 100%;
+}
+
+#msg{
+    width: 90%;
+    height: 32px;
+    font-size: 16px;
+}
+
+#msg:focus{
+    border: visible;
+}
+
+.btn-plane{
+    font-size: 16px;
+    color: #1e1e1e;
+}
+
+.btn-plane:hover{
+    cursor: pointer;
+    color: #b8090c;
+    transition: 0.3s ease;
+}
