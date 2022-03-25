@@ -1,5 +1,6 @@
 const chatForm = document.getElementById('chat-form')
-const chatMessages = document.querySelector('chat-messages')
+const chatVideo = document.querySelector('.chat-video')
+const chatMessages = document.querySelector('.chat-messages')
 const roomName = document.getElementById('room-name')
 const userList = document.getElementById('users')
 
@@ -18,7 +19,7 @@ socket.on('room-users', ({room,users}) => {
 
 socket.on('message', (message) => {
     outputMessage(message)
-    // chatMessages.scrollTop = chatMessages.scrollHeight
+    chatMessages.scrollTop = chatMessages.scrollHeight
 })
 
 chatForm.addEventListener('submit', (e) => {
@@ -66,6 +67,26 @@ function outputUsers(users){
         li.innerText = user.username
         userList.appendChild(li)
     });
+}
+
+function addVideo(){
+    let video = document.createElement('video')
+
+    navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true
+      }).then(stream => {
+        video.srcObject = stream
+        video.style.width = '100%'
+        video.setAttribute('playsinline', 'true')
+        video.setAttribute('autoplay', 'true')
+      })
+
+    chatVideo.append(video)
+}
+
+for(let i = 0; i < 6; i++){
+    addVideo()
 }
 
 document.getElementById('leave-btn').addEventListener('click', () => {

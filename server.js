@@ -10,7 +10,6 @@ const {
     getIndividualRoomUsers
 } = require('./helper/userHelper')
 
-
 const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
@@ -58,6 +57,6 @@ io.on('connection', socket => {
     })
 })
 
-const PORT = 3000 || process.env.PORT
+const PORT = 5500 || process.env.PORT
 
 server.listen(PORT, () => console.log('Server is listening at ' + PORT))

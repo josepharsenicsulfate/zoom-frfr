@@ -32,21 +32,40 @@ header a:hover{
 
 main{
     display: grid;
-    grid-template-areas: "side log"
-                         "side form";
-    grid-template-columns: 2fr 3fr;
+    grid-template-areas: "video log"
+                         "video form";
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 50vh 5vh;
     height: 65vh;
     margin: 25px 0;
-    row-gap: 15px;
+    gap: 15px;
+}
+
+.chat-video{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
 }
 
 .chat-sidebar{
     grid-area: side;
+    display: none;
 }
 
 .chat-messages{
     grid-area: log;
-    overflow-y: scroll;
+    overflow-y: auto;
+    padding-right: 3px;
+}
+.chat-messages::-webkit-scrollbar{
+    background-color: #ccc;
+    width: 2px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb{
+    background-color: #b8090c;
 }
 
 p.meta{
@@ -60,6 +79,7 @@ p.meta span{
 
 p.text{
     word-wrap: break-word;
+    font-size: 14px;
 }
 
 .chat-form-container{
@@ -83,12 +103,14 @@ p.text{
 
 .chat-form{
     width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 #msg{
-    width: 90%;
     height: 32px;
-    font-size: 16px;
+    font-size: 14px;
+    padding: 0;
 }
 
 #msg:focus{
