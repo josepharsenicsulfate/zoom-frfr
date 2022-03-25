@@ -85,9 +85,9 @@ function addVideo(){
     chatVideo.append(video)
 }
 
-for(let i = 0; i < 6; i++){
+// for(let i = 0; i < 6; i++){
     addVideo()
-}
+// }
 
 document.getElementById('leave-btn').addEventListener('click', () => {
     const leaveRoom = confirm('Leave room?')
